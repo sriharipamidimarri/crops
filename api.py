@@ -105,9 +105,9 @@ def predict(input_data: PricePredictionInput):
         modal_price = rf_modal.predict(X_input_scaled)[0]
 
         return {
-            "Min Price": min_price,
-            "Max Price": max_price,
-            "Modal Price": modal_price,
+            "Min_Price": min_price,
+            "Max_Price": max_price,
+            "Modal_Price": modal_price,
         }
 
     except Exception as e:
@@ -191,9 +191,9 @@ def analysis(input_data: PricePredictionInput):
         for i, date in enumerate(future_dates):
             future_predictions.append({
                 "Arrival_Date": date.strftime("%d-%m-%Y"),
-                "Min Price": min_price_pred_with_noise[i],
-                "Max Price": max_price_pred_with_noise[i],
-                "Modal Price": modal_price_pred_with_noise[i]
+                "Min_Price": min_price_pred_with_noise[i],
+                "Max_Price": max_price_pred_with_noise[i],
+                "Modal_Price": modal_price_pred_with_noise[i]
             })
 
         return {
