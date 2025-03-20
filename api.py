@@ -6,8 +6,17 @@ from datetime import datetime, timedelta
 import joblib  # For compressed models
 import pickle  # For encoders (no compression needed)
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Your frontend's URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Paths for loading models and encoders
 MODEL_DIR = "models"  # Only used for encoders
